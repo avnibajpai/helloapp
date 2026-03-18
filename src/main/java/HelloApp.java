@@ -1,10 +1,19 @@
 public class HelloApp {
-
     public static void main(String[] args) {
-                String name = "World";
-       if(args.length > 0){
-           name = args[0];
-       }
-       System.out.println("Hello, " + name + "!");
+        StringBuilder namesBuilder = new StringBuilder();
+
+        if (args.length > 0) {
+            for (int i = 0; i < args.length; i++) {
+                namesBuilder.append(args[i]);
+                // Only add a comma if it's NOT the last element
+                if (i < args.length - 1) {
+                    namesBuilder.append(", ");
+                }
+            }
+        } else {
+            namesBuilder.append("World");
+        }
+
+        System.out.println("Hello, " + namesBuilder.toString() + "!");
     }
-} 
+}
